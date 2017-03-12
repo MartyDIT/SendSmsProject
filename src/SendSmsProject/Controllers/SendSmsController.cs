@@ -8,9 +8,9 @@ namespace SendSmsProject.Controllers
 {
     public class SendSmsController : Controller
     {
-        public string NewMessage()
+        public ActionResult Index()
         {
-            return "Hello from the Send sms controller";
+            return View();
         }
     }
 }
