@@ -24,9 +24,12 @@ namespace SendSmsProject.Controllers
             return View(people);
         }
 
-        public ActionResult SendText()
+        public ActionResult SendMessage(String AreaCode, String PhoneNumber)
         {
-            return View();
+            Sms sms = new Sms();
+           
+            return View("~/Views/SendSms/Create.cshtml");
         }
     }
 }
+

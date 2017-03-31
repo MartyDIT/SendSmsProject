@@ -30,8 +30,10 @@ namespace SendSmsProject.Controllers
         public ActionResult Create(Sms new1)
         {
 
-            if (ModelState.IsValid)
+            if ()
             {
+
+
                 return RedirectToAction("Success");
             }
             return View(new1);
