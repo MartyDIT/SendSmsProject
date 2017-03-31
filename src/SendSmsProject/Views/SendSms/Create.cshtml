@@ -1,0 +1,73 @@
+﻿@model SendSmsProject.Models.Sms
+@{
+    ViewBag.Title = "Send New SMS";
+   
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="Send SMS Page" />
+    <title></title>
+</head>
+<body>
+<div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+
+    <h1>Sends Your Free SMS!</h1>
+
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script> 
+
+    @using (Html.BeginForm("Create", "SendSms", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            @Html.Label("Enter Area Code")
+            @Html.TextBox("areaCode")
+            @Html.ValidationMessageFor(model => model.areaCode)
+            @Html.Label("Enter Phone Number")
+            @Html.TextBox("phoneNumber")
+            @Html.ValidationMessageFor(model => model.phoneNumber)
+            @Html.Label("Enter your Text")
+            @Html.TextBox("TextContent")
+            @Html.ValidationMessageFor(model => model.textContent)
+
+            <input type="submit" name="Check" />
+        </fieldset>
+    }
+
+    
+
+
+    @*<form action="/SendSms/Create" method="post">
+
+
+        <table>
+            <tr>
+                <td>Area Code <input name="areaCode" value=""/> </td>
+
+                <td>Phone Number <input name="phoneNumber" value=""/></td>
+
+
+
+                <td>
+                    Text Content <input name="textContent" value="" style="width: 250px; height: 150px;">
+                </td>
+            </tr>
+            <tr>
+                <td> <input type="submit" name="Check"/></td>
+            </tr>
+
+        </table>
+
+    </form>*@
+
+</div>
+</body>
+</html>
+
+
