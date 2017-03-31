@@ -11,7 +11,7 @@ namespace SendSmsProject.Models
         
         public string Forename { get; set; }
         public string Surename { get; set; }
-        public int AreaCode { get; set; }
-        public int PhoneNumber { get; set; }
+        public string AreaCode { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }

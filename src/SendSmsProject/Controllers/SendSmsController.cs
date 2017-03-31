@@ -30,11 +30,22 @@ namespace SendSmsProject.Controllers
         public ActionResult Create(Sms new1)
         {
 
-            if ()
+            if (ModelState.IsValid)
             {
+                MockDB newDb = new MockDB();
+               
+                string checkList = newDb.findContact(new1.areaCode, new1.phoneNumber);
 
-
-                return RedirectToAction("Success");
+                if (checkList == "Not found")
+                {
+                   ViewData["SuccessMsg"] = "Error. Contact does not exist. Go to contacts page above.";
+                }
+                else
+                {
+                   
+                    return RedirectToAction("Success");
+                }
+                
             }
             return View(new1);
 

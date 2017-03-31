@@ -40,33 +40,16 @@
         </fieldset>
     }
 
-    
-
-
-    @*<form action="/SendSms/Create" method="post">
-
-
-        <table>
-            <tr>
-                <td>Area Code <input name="areaCode" value=""/> </td>
-
-                <td>Phone Number <input name="phoneNumber" value=""/></td>
-
-
-
-                <td>
-                    Text Content <input name="textContent" value="" style="width: 250px; height: 150px;">
-                </td>
-            </tr>
-            <tr>
-                <td> <input type="submit" name="Check"/></td>
-            </tr>
-
-        </table>
-
-    </form>*@
 
 </div>
+    
+    @if (ViewData["SuccessMsg"] != null)
+    {
+    <div class="success">@ViewData["SuccessMsg"]</div>
+    }
+
+    
+    
 </body>
 </html>
 
