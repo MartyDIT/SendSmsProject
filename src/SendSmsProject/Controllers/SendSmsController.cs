@@ -42,8 +42,19 @@ namespace SendSmsProject.Controllers
                 }
                 else
                 {
+                    ViewData["Content"] = new1.textContent;
+                    var name2= newDb.GetName(new1.areaCode, new1.phoneNumber);
+                    if (name2 != null)
+                    {
+                        foreach (var VARIABLE in name2)
+                        {
+                            ViewData["Receiver"] = VARIABLE;
+                        }
+                    }
+                    
+                        
                    
-                    return RedirectToAction("Success");
+                    return View("Success");
                 }
                 
             }

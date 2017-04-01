@@ -1,4 +1,5 @@
 ﻿@using System.Web.Script.Services
+@model SendSmsProject.Models.Sms
 
 
 @{
@@ -7,7 +8,15 @@
 
 <body>
 
-    The message was sent succesfully!
+
+The message was sent succesfully!
+To Receiver: @ViewData["Receiver"],
+Content: @ViewData["Content"]
+    
+    @Html.ActionLink("Send new Message", "Create", "SendSms")
+
+
+    
 
 
 </body>

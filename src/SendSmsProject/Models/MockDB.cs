@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,7 +16,7 @@ namespace SendSmsProject.Models
     public class MockDB : iDb // we have an inteface here
     {
         List<Person> people;
-
+        
         public MockDB() // we are faking a database here
         {
             people = new List<Person>();
@@ -50,6 +51,7 @@ namespace SendSmsProject.Models
         public String findContact(String AreaCode, String PhoneNumber)
         {
             var contact = people.FirstOrDefault(x => x.AreaCode == AreaCode && x.PhoneNumber == PhoneNumber);
+            
             if (contact == null)
             {
                 return "Not found";
@@ -58,10 +60,24 @@ namespace SendSmsProject.Models
             {
                 return "";
             }
+
             {
                 
             }
         }
 
+        public List<String> GetName(String AreaCode, String PhoneNumber)
+        {
+            var name = people
+                     .Where(x => x.AreaCode == AreaCode && x.PhoneNumber == PhoneNumber)
+                      .Select(x => x.Forename)
+                       .ToList();
+
+            return name;
+        }
+        
+         
+           
+        }
+
     }
-}
