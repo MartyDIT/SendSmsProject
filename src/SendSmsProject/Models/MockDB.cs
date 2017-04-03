@@ -6,11 +6,11 @@ using System.Web;
 
 namespace SendSmsProject.Models
 {
-    interface iDb
+    interface iDb //interface for database
     {
-        List<Person> GetPeople();
-        Person GetPerson(int findid);
+        String findContact(String AreaCode, String PhoneNumber);
         void CreatePerson(Person p);
+        List<String> GetName(String AreaCode, String PhoneNumber);
     }
 
     public class MockDB : iDb // we have an inteface here
@@ -19,7 +19,7 @@ namespace SendSmsProject.Models
         
         public MockDB() // we are faking a database here
         {
-            people = new List<Person>();
+            people = new List<Person>(); //MockDB constructor
             people.Add(new Person() { Id = 1,Forename = "Ginette", Surename = "Shaeffer", AreaCode = "089", PhoneNumber = "2084057"});
             people.Add(new Person() { Id = 2, Forename = "Marceline", Surename = "Sprow", AreaCode = "088", PhoneNumber = "2084058" });
             people.Add(new Person() { Id = 3, Forename = "Emmitt", Surename = "Holtkamp", AreaCode = "089", PhoneNumber = "2084059" });
@@ -31,24 +31,15 @@ namespace SendSmsProject.Models
             people.Add(new Person() { Id = 9, Forename = "Almeta", Surename = "Bonomo", AreaCode = "089", PhoneNumber = "2084065" });
             people.Add(new Person() { Id = 10, Forename = "Ginette", Surename = "Lish", AreaCode = "088", PhoneNumber = "2084066" });
         }
-        public List<Person> GetPeople()
-        {
-            return people;
-        }
-
-        public Person GetPerson(int findid)
-        {
-            return people.Where(p => p.Id == findid).FirstOrDefault(); //returns the first person with findID 
-
-        }
-
-        public void CreatePerson(Person p)
+        
+        
+        public void CreatePerson(Person p) //adds a person to the list
         {
             people.Add(p);
         }
 
 
-        public String findContact(String AreaCode, String PhoneNumber)
+        public String findContact(String AreaCode, String PhoneNumber) //finds a person in the list
         {
             var contact = people.FirstOrDefault(x => x.AreaCode == AreaCode && x.PhoneNumber == PhoneNumber);
             

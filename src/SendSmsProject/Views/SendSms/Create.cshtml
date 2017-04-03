@@ -29,13 +29,19 @@
             @Html.Label("Enter Area Code")
             @Html.TextBox("areaCode")
             @Html.ValidationMessageFor(model => model.areaCode)
+            <br/>
             @Html.Label("Enter Phone Number")
             @Html.TextBox("phoneNumber")
             @Html.ValidationMessageFor(model => model.phoneNumber)
+            <br />
+            <br />
             @Html.Label("Enter your Text")
-            @Html.TextBox("TextContent")
+            @Html.TextBox("TextContent",null, new { style = "height: 100px;" })
             @Html.ValidationMessageFor(model => model.textContent)
-
+            <br />
+            <br />
+            <br />
+            <br />
             <input type="submit" name="Check" />
         </fieldset>
     }
